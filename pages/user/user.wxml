@@ -1,0 +1,37 @@
+<view class="page">
+    <view class="page__bd">
+        <view class="weui-cells__title">基本信息</view>
+        <view class="weui-cells weui-cells_after-title">
+            <view class="weui-cell">
+              <view class="weui-cell__hd" style="position: relative;margin-right: 10px;">
+                <image src="{{user.avatarUrl}}" style="height: 50px;width: 50px;display: block" />
+              </view>
+              <view class="weui-cell__bd">
+                <view class="page__title">职人</view>
+                <view class="page__desc">{{user.nickName}}</view>
+              </view>
+            </view>
+            <view class="weui-cell">
+                <view class="weui-cell__bd">
+                    <view style="vertical-align: middle">积分<view class="weui-badge" style="margin-left: 5px;">{{user.score}}</view></view>
+                </view>
+            </view>
+            <view class="weui-cell">
+                <view class="weui-cell__bd">
+                    <view style="vertical-align: middle">信用<view class="weui-badge" style="margin-left: 5px;">{{user.credit}}</view></view>
+                </view>
+            </view>
+        </view>
+        <view class="weui-cells__title">认领任务</view>
+        <view class="weui-cells weui-cells_after-title">
+            <view class="weui-cell" wx:for="{{tasks}}" wx:key="objectId">
+                <view class="weui-cell__bd">
+                  <view class="order">{{index}}</view>
+                </view>
+                <view class="weui-cell__ft">
+                    <navigator url="/pages/detail/detail?objectId={{item.objectId}}" hover-class="navigator-hover">{{item.title}}</navigator>
+                </view>
+            </view>
+        </view>
+    </view>
+</view>

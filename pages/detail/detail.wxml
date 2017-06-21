@@ -1,0 +1,67 @@
+<view class="page">
+     <view class="page__bd">
+        <view class="weui-cells__title">任务详情</view>
+        <view class="weui-cells weui-cells_after-title">
+            <view class="weui-cell">
+                <view class="weui-cell__bd">名称</view>
+                <view class="weui-cell__ft">{{task.title}}</view>
+            </view>
+        </view>
+        <view class="weui-cells__title">说明</view>
+        <view class="weui-cells weui-cells_form weui-cells_after-title">
+            <view class="weui-cell">
+                <view class="weui-cell__bd">
+                    <textarea class="weui-textarea" rows="2" disabled>{{task.content}}</textarea>
+                </view>
+            </view>
+            <view class="weui-cell">
+                <view class="weui-cell__bd">
+                    <view style="vertical-align: middle">奖励积分<view class="weui-badge" style="margin-left: 5px;">{{task.score}}</view></view>
+                </view>
+            </view>
+            <view class="weui-cell">
+                <view class="weui-cell__bd">
+                    <view style="vertical-align: middle">时限 {{task.limit}} 天</view>
+                </view>
+            </view>
+        </view> 
+        <view class="weui-cells__title">参与者</view>
+        <view class="weui-cells weui-cells_after-title">
+            <view class="weui-cell">
+                <view style="max-width: 70rpx;" class="weui-cell__bd" wx:for="{{application}}" wx:key="objectId">
+                  <view class="application">
+                    <image class="avatar" background-size="cover" src="{{item.avatarUrl}}"></image>
+                  </view>
+                </view>
+            </view>
+        </view>
+        <view class="weui-cells__title">已提交</view>
+        <view class="weui-cells weui-cells_after-title">
+            <view class="weui-cell">
+                <view class="weui-cell__bd">
+                  <view class="application" wx:for="{{submission}}" wx:key="objectId">
+                    <text>地址：{{item.url}}</text>
+                  </view>
+                </view>
+            </view>
+        </view>
+        <view class="weui-cells">
+            <view class="weui-cell">
+                <view class="weui-cell__bd">
+                  <view wx:if="{{ applyed && !completed }}">
+                    <button class="weui-btn mini-btn" type="warn" size="mini" data-id="{{task.objectId}}" ontap="abandonTask">放弃</button>
+                  </view>
+                  <view wx:elif="{{ !applyed }}">
+                    <button class="weui-btn mini-btn" type="primary" size="mini" data-id="{{task.objectId}}" ontap="applyTask">认领</button>
+                  </view>
+                  <view wx:else>
+                    <text>已完成</text>
+                  </view>
+                </view>
+                <view class="weui-cell__ft" wx:if="{{ applyed && !completed }}">
+                  <button class="weui-btn mini-btn" type="default" size="mini" data-id="{{task.objectId}}" ontap="submitTask">提交</button>
+                </view>
+            </view>
+        </view>
+    </view>
+</view>

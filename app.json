@@ -1,0 +1,30 @@
+{
+  "pages": [
+    "pages/user/user",
+    "pages/task/task",
+    "pages/detail/detail",
+    "pages/submit/submit"
+  ],
+  "tabBar": {
+    "list": [
+      {
+        "pagePath": "pages/user/user",
+        "text": "用户",
+        "iconPath": "./images/user.png",
+        "selectedIconPath": "./images/user_h.png"
+      },
+      {
+        "pagePath": "pages/task/task",
+        "text": "任务",
+        "iconPath": "./images/task.png",
+        "selectedIconPath": "./images/task_h.png"
+      }
+    ]
+  },
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "WeChat",
+    "navigationBarTextStyle": "black"
+  }
+}
